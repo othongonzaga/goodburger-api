@@ -1,0 +1,49 @@
+# Build
+bin/
+obj/
+out/
+artifacts/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Github
+.github/
+
+
+# Rider / ReSharper
+.idea/
+_ReSharper*/
+*.DotSettings.user
+
+# Testes / cobertura
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# Logs
+*.log
+
+# Pacotes
+packages/
+
+# Banco local
+*.db
+*.db-shm
+*.db-wal
+
+# Publicacao
+publish/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos locais
+appsettings.Local.json
+appsettings.*.local.json
