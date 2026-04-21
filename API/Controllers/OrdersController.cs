@@ -37,4 +37,23 @@ public sealed class OrdersController(IOrderService orderService) : ControllerBas
         var response = await orderService.GetByIdAsync(id, cancellationToken);
         return Ok(response);
     }
+
+    [HttpPut("{id:guid}")]
+    public async Task<ActionResult<OrderResponse>> Update(
+        Guid id,
+        [FromBody] UpsertOrderRequest request,
+        CancellationToken cancellationToken)
+    {
+        var response = await orderService.UpdateAsync(id, request, cancellationToken);
+        return Ok(response);
+    }
+
+    [HttpDelete("{id:guid}")]
+    public async Task<IActionResult> Delete(
+        Guid id,
+        CancellationToken cancellationToken)
+    {
+        await orderService.DeleteAsync(id, cancellationToken);
+        return NoContent();
+    }
 }
