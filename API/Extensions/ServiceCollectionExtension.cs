@@ -1,4 +1,6 @@
-﻿using goodburger_api.Infrastructure.Data;
+﻿using goodburger_api.Application.Interfaces;
+using goodburger_api.Application.Services;
+using goodburger_api.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace goodburger_api.API.Extensions;
@@ -12,6 +14,8 @@ public static class ServiceCollectionExtensions
 
         services.AddDbContext<AppDbContext>(options =>
             options.UseSqlite(connectionString));
+
+        services.AddScoped<IMenuCatalog, MenuCatalog>();
 
         return services;
     }
