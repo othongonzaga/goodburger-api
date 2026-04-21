@@ -21,6 +21,14 @@ public sealed class OrdersController(IOrderService orderService) : ControllerBas
             response);
     }
 
+    [HttpGet]
+    public async Task<ActionResult<IReadOnlyCollection<OrderResponse>>> GetAll(
+        CancellationToken cancellationToken)
+    {
+        var response = await orderService.GetAllAsync(cancellationToken);
+        return Ok(response);
+    }
+
     [HttpGet("{id:guid}")]
     public async Task<ActionResult<OrderResponse>> GetById(
         Guid id,
